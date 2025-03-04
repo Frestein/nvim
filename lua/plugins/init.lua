@@ -1,6 +1,5 @@
 return {
 	{ import = "plugins.colorschemes" },
-	{ import = "plugins.extras.ai.supermaven" },
 	{ import = "plugins.extras.fun.drop" },
 	{ import = "plugins.extras.optimizations.garbage-day" },
 	{ import = "plugins.extras.editor.live-rename" },
@@ -8,6 +7,8 @@ return {
 	{ import = "plugins.extras.editor.workspace-diagnostics" },
 	{ import = "plugins.extras.editor.rainbow-delimiters" },
 	{ import = "plugins.extras.editor.treesj" },
+	{ import = "plugins.extras.coding.blink.colorful-menu" },
+	{ import = "plugins.extras.style.popups.rounded" },
 	{ import = "plugins.extras.ui.colorful-winsep" },
 	{ import = "plugins.extras.ui.symbol-usage" },
 	{ import = "plugins.extras.keys.snacks-picker.smart" },
