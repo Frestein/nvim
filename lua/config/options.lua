@@ -1,6 +1,8 @@
 local g = vim.g
 local o = vim.o
 
+g.lazyvim_python_lsp = "basedpyright"
+
 local function escape(str)
 	local escape_chars = [[;,."|\]]
 	return vim.fn.escape(str, escape_chars)

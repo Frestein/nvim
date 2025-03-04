@@ -45,7 +45,7 @@ require("lazy").setup {
 			ft = "",
 			cmd = "󰞷",
 			lazy = "󰂠 ",
-			event = "󰪓",
+			event = "󰪓 ",
 			loaded = "",
 			not_loaded = "",
 			keys = " ",

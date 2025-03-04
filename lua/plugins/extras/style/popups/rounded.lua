@@ -1,5 +1,21 @@
 return {
 	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			diagnostics = {
+				float = { border = "rounded" },
+			},
+		},
+	},
+
+	{
+		"neovim/nvim-lspconfig",
+		opts = function()
+			require("lspconfig.ui.windows").default_options.border = "rounded"
+		end,
+	},
+
+	{
 		"folke/noice.nvim",
 		opts = {
 			presets = {
