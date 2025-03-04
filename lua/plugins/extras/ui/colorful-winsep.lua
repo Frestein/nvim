@@ -1,14 +1,8 @@
-local colors = require("utils").get_base46_colors()
-
 local opts = {
 	hi = {
-		fg = "#1F3442",
+		fg = vim.api.nvim_get_hl(0, { name = "NvimSeparator" }).fg,
 	},
 }
-
-if colors then
-	opts.hi.fg = colors.line
-end
 
 return {
 	{

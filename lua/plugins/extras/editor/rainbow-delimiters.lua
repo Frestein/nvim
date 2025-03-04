@@ -15,7 +15,6 @@ return {
 		end,
 		config = function(_, opts)
 			require("rainbow-delimiters.setup").setup(opts)
-			dofile(vim.g.base46_cache .. "rainbowdelimiters")
 
 			local rainbow_delimiters = require "rainbow-delimiters"
 			Snacks.toggle({
@@ -30,7 +29,7 @@ return {
 						rainbow_delimiters.disable(0)
 					end
 				end,
-			}):map "<leader>ur"
+			}):map "<leader>uR"
 		end,
 	},
 }
