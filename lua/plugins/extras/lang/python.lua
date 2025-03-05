@@ -29,4 +29,16 @@ return {
 			},
 		},
 	},
+
+	{
+		"stevearc/conform.nvim",
+		cmd = "ConformInfo",
+		---@module "conform"
+		---@type conform.setupOpts
+		opts = {
+			formatters_by_ft = {
+				python = { "ruff_format", "ruff_organize_imports", "ruff_fix", "black" },
+			},
+		},
+	},
 }

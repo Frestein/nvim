@@ -4,9 +4,26 @@ return {
 		opts = {
 			linters_by_ft = {
 				bash = { "shellcheck", "bash" },
+				dash = { "shellcheck", "dash" },
 				fish = { "fish" },
 				sh = { "shellcheck", "bash" },
 				zsh = { "zsh" },
+			},
+		},
+	},
+
+	{
+		"stevearc/conform.nvim",
+		cmd = "ConformInfo",
+		---@module "conform"
+		---@type conform.setupOpts
+		opts = {
+			formatters_by_ft = {
+				bash = { "shellharden", "shellcheck", "shfmt" },
+				dash = { "shfmt" },
+				fish = { "fish_indent" },
+				sh = { "shellharden", "shellcheck", "shfmt" },
+				zsh = { "shfmt" },
 			},
 		},
 	},

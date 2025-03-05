@@ -1,5 +1,12 @@
 return {
 	{
+		"folke/snacks.nvim",
+		opts = {
+			scroll = { enabled = false },
+		},
+	},
+
+	{
 		"karb94/neoscroll.nvim",
 		opts = {
 			easing = "quadratic",
