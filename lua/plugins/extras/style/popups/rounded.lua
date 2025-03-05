@@ -47,4 +47,16 @@ return {
 			signature = { window = { border = "single" } },
 		},
 	},
+
+	{
+		"folke/snacks.nvim",
+		opts = function()
+			require("snacks").config.style("news", {
+				border = "rounded",
+				backdrop = false,
+				width = 0.84,
+				height = 0.62,
+			})
+		end,
+	},
 }

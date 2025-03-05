@@ -1,4 +1,6 @@
 return {
+	recommended = true,
+	desc = "A plugin that makes Neovim more friendly to non-English input methods",
 	{
 		"Wansmer/langmapper.nvim",
 		lazy = false,

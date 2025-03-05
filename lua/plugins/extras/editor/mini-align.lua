@@ -1,7 +1,7 @@
 return {
-	{
-		"echasnovski/mini.align",
-		event = "VeryLazy",
-		opts = {},
-	},
+	"echasnovski/mini.align",
+	recommended = true,
+	desc = "Align text interactively",
+	event = "VeryLazy",
+	opts = {},
 }
