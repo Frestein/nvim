@@ -19,15 +19,9 @@ local langmap = vim.fn.join({
 
 local options = {
 	--- UI ---
-	number = true,
 	numberwidth = 2,
-	relativenumber = true,
-	ruler = false,
-	showmode = false,
 	pumblend = 15,
-	laststatus = 3,
 	scrolloff = 5,
-	cursorline = true,
 	signcolumn = "yes",
 	guicursor = table.concat({
 		"n-v-c:block",
@@ -39,23 +33,21 @@ local options = {
 	}, ","),
 	cursorlineopt = "both",
 	fillchars = table.concat({
-		"eob: ",
-		"fold: ",
 		"foldopen:",
 		"foldclose:",
+		"fold: ",
 		"foldsep: ", -- or "│" to use bar for show fold area
+		"diff:╱",
+		"eob: ",
 	}, ","),
 
 	--- Indents, Spaces, Tabulation ---
-	smartindent = true,
-	expandtab = true,
 	shiftwidth = 4,
 	tabstop = 4,
 	softtabstop = 4,
 
 	--- Search ---
 	ignorecase = true,
-	smartcase = true,
 	hlsearch = true,
 	infercase = true,
 
@@ -69,21 +61,13 @@ local options = {
 	--- Swap ---
 	swapfile = false,
 
-	-- Interval for writing swap file to disk, also used by gitsigns
-	updatetime = 250,
-
 	--- Spell Checking ---
 	spelllang = "en_us,ru_ru",
 	spellfile = os.getenv "HOME" .. "/.config/nvim/spell/en.utf-8.add",
 
 	--- Other ---
-	timeoutlen = 400,
-	clipboard = "unnamedplus",
-	undofile = true,
-	splitbelow = true,
-	splitright = true,
-	mouse = "a",
 	langmap = langmap,
+	wrap = true,
 
 	-- Disable nvim intro
 	shortmess = o.shortmess .. "sI",

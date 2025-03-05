@@ -1,6 +1,7 @@
 return {
 	{
 		"stevearc/conform.nvim",
+		optional = true,
 		cmd = "ConformInfo",
 		---@module "conform"
 		---@type conform.setupOpts

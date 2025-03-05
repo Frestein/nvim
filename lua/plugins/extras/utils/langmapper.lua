@@ -22,6 +22,7 @@ return {
 
 	{
 		"folke/which-key.nvim",
+		optional = true,
 		opts = function()
 			local lmu = require "langmapper.utils"
 			local wk_state = require "which-key.state"

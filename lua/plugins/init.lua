@@ -1,3 +1,3 @@
 return {
-	{ import = "plugins.colorschemes" },
+	{ import = "plugins.colorschemes.gruvbox" },
 }

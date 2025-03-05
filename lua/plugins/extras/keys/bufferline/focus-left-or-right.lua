@@ -1,5 +1,6 @@
 return {
 	"akinsho/bufferline.nvim",
+	optional = true,
 	keys = {
 		{ "<S-h>", false },
 		{ "<S-l>", false },

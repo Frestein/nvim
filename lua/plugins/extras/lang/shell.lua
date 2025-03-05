@@ -1,6 +1,7 @@
 return {
 	{
 		"mfussenegger/nvim-lint",
+		optional = true,
 		opts = {
 			linters_by_ft = {
 				bash = { "shellcheck", "bash" },
@@ -14,6 +15,7 @@ return {
 
 	{
 		"stevearc/conform.nvim",
+		optional = true,
 		cmd = "ConformInfo",
 		---@module "conform"
 		---@type conform.setupOpts

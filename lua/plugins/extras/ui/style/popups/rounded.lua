@@ -1,6 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		optional = true,
 		opts = {
 			diagnostics = {
 				float = { border = "rounded" },
@@ -10,6 +11,7 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
+		optional = true,
 		opts = function()
 			require("lspconfig.ui.windows").default_options.border = "rounded"
 		end,
@@ -17,6 +19,7 @@ return {
 
 	{
 		"folke/noice.nvim",
+		optional = true,
 		opts = {
 			presets = {
 				lsp_doc_border = true,
@@ -33,6 +36,7 @@ return {
 
 	{
 		"saghen/blink.cmp",
+		optional = true,
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config | { sources: { compat: string[] } }
 		opts = {

@@ -3,6 +3,7 @@ local lsp = vim.g.lazyvim_python_lsp or "pyright"
 return {
 	{
 		"neovim/nvim-lspconfig",
+		optional = true,
 		---@class PluginLspOpts
 		opts = {
 			---@type lspconfig.options
@@ -23,6 +24,7 @@ return {
 
 	{
 		"mfussenegger/nvim-lint",
+		optional = true,
 		opts = {
 			linters_by_ft = {
 				python = { "ruff" },
@@ -32,6 +34,7 @@ return {
 
 	{
 		"stevearc/conform.nvim",
+		optional = true,
 		cmd = "ConformInfo",
 		---@module "conform"
 		---@type conform.setupOpts

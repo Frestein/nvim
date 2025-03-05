@@ -1,6 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		optional = true,
         -- stylua: ignore
 		opts = function()
 			local lsp = vim.lsp.buf
@@ -14,6 +15,7 @@ return {
 
 	{
 		"folke/which-key.nvim",
+		optional = true,
 		opts = function(_, opts)
 			table.insert(opts.spec, { "<leader>cw", group = "workspace" })
 		end,

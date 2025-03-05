@@ -16,13 +16,12 @@ local function create_filter(git_status)
 	end
 end
 
-local git_status = require("utils").new_git_status()
+local git_status = require("utils.git").new_git_status()
 
 return {
 	{
 		"echasnovski/mini.files",
-		event = "VeryLazy",
-		version = false,
+		optional = true,
 		opts = {
 			content = {
 				filter = create_filter(git_status),
@@ -37,7 +36,7 @@ return {
 		keys = function()
 			local autocmd = vim.api.nvim_create_autocmd
 			local map = vim.keymap.set
-			local new_git_status = require("utils").new_git_status
+			local new_git_status = require("utils.git").new_git_status
 
 			local function minifiles_toggle(...)
 				if not MiniFiles.close() then
@@ -182,5 +181,15 @@ return {
 				},
 			}
 		end,
+	},
+
+	{
+		"folke/lazydev.nvim",
+		optional = true,
+		opts = {
+			library = {
+				"mini.files",
+			},
+		},
 	},
 }

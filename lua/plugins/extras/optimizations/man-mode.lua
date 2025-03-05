@@ -11,26 +11,33 @@ local function is_not_man_mode()
 	return not is_man_mode()
 end
 
-if is_man_mode() then
-	vim.opt.laststatus = 0
-	vim.opt.statusline = " "
-end
-
 return {
-	{ "Frestein/ui", cond = is_not_man_mode },
-	{ "alker0/chezmoi.vim", cond = is_not_man_mode },
-	{ "andrewferrier/debugprint.nvim", cond = is_not_man_mode },
-	{ "echasnovski/mini.ai", cond = is_not_man_mode },
-	{ "echasnovski/mini.files", cond = is_not_man_mode },
-	{ "echasnovski/mini.files", cond = is_not_man_mode },
-	{ "echasnovski/mini.operators", cond = is_not_man_mode },
-	{ "echasnovski/mini.pairs", cond = is_not_man_mode },
-	{ "echasnovski/mini.surround", cond = is_not_man_mode },
-	{ "folke/todo-comments.nvim", cond = is_not_man_mode },
-	{ "folke/trouble.nvim", cond = is_not_man_mode },
-	{ "folke/ts-comments.nvim", cond = is_not_man_mode },
-	{ "folke/which-key.nvim", cond = is_not_man_mode },
-	{ "nvim-treesitter/nvim-treesitter-context", cond = is_not_man_mode },
-	{ "nvim-treesitter/nvim-treesitter-textobjects", cond = is_not_man_mode },
-	{ "nvim-zh/colorful-winsep.nvim", cond = is_not_man_mode },
+	{ "akinsho/bufferline.nvim", optional = true, cond = is_not_man_mode },
+	{ "andrewferrier/debugprint.nvim", optional = true, cond = is_not_man_mode },
+	{ "echasnovski/mini.ai", optional = true, cond = is_not_man_mode },
+	{ "echasnovski/mini.files", optional = true, cond = is_not_man_mode },
+	{ "echasnovski/mini.move", optional = true, cond = is_not_man_mode },
+	{ "echasnovski/mini.operators", optional = true, cond = is_not_man_mode },
+	{ "echasnovski/mini.pairs", optional = true, cond = is_not_man_mode },
+	{ "echasnovski/mini.surround", optional = true, cond = is_not_man_mode },
+	{ "folke/todo-comments.nvim", optional = true, cond = is_not_man_mode },
+	{ "folke/trouble.nvim", optional = true, cond = is_not_man_mode },
+	{ "folke/ts-comments.nvim", optional = true, cond = is_not_man_mode },
+	{ "folke/which-key.nvim", optional = true, cond = is_not_man_mode },
+	{ "hiphish/rainbow-delimiters.nvim", optional = true, cond = is_not_man_mode },
+	{ "nvim-lualine/lualine.nvim", optional = true, cond = is_not_man_mode },
+	{ "nvim-treesitter/nvim-treesitter-context", optional = true, cond = is_not_man_mode },
+	{ "nvim-treesitter/nvim-treesitter-textobjects", optional = true, cond = is_not_man_mode },
+	{ "nvim-zh/colorful-winsep.nvim", optional = true, cond = is_not_man_mode },
+	{ "tzachar/highlight-undo.nvim", optional = true, cond = is_not_man_mode },
+
+	{
+		"LazyVim/LazyVim",
+		opts = function()
+			if is_man_mode() then
+				vim.o.laststatus = 0
+				vim.o.statusline = " "
+			end
+		end,
+	},
 }

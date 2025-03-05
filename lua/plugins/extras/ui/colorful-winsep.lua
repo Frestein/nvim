@@ -5,9 +5,7 @@ local opts = {
 }
 
 return {
-	{
-		"nvim-zh/colorful-winsep.nvim",
-		event = "WinLeave",
-		opts = opts,
-	},
+	"nvim-zh/colorful-winsep.nvim",
+	event = "WinLeave",
+	opts = opts,
 }

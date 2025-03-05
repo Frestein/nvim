@@ -1,10 +1,9 @@
 return {
-	{
-		"saghen/blink.cmp",
-		opts = {
-			cmdline = {
-				enabled = true,
-			},
+	"saghen/blink.cmp",
+	optional = true,
+	opts = {
+		cmdline = {
+			enabled = true,
 		},
 	},
 }

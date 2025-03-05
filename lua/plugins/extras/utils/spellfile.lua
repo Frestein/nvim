@@ -1,6 +1,4 @@
 return {
-	{
-		"cuducos/spellfile.nvim",
-		event = "VeryLazy",
-	},
+	"cuducos/spellfile.nvim",
+	event = "VeryLazy",
 }
