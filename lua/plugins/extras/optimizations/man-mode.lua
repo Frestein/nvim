@@ -15,6 +15,7 @@ return {
 	{ "akinsho/bufferline.nvim", optional = true, cond = is_not_man_mode },
 	{ "andrewferrier/debugprint.nvim", optional = true, cond = is_not_man_mode },
 	{ "echasnovski/mini.ai", optional = true, cond = is_not_man_mode },
+	{ "echasnovski/mini.align", optional = true, cond = is_not_man_mode },
 	{ "echasnovski/mini.files", optional = true, cond = is_not_man_mode },
 	{ "echasnovski/mini.move", optional = true, cond = is_not_man_mode },
 	{ "echasnovski/mini.operators", optional = true, cond = is_not_man_mode },
