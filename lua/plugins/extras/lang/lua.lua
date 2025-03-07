@@ -1,4 +1,6 @@
-return {
+local fs = require "utils.fs"
+
+local plugins = {
 	{
 		"mfussenegger/nvim-lint",
 		optional = true,
@@ -6,11 +8,9 @@ return {
 			linters_by_ft = {
 				lua = { "selene" },
 			},
-			---@type table<string,table>
+			---@type table<string, table>
 			linters = {
 				selene = {
-					-- `condition` is another LazyVim extension that allows you to
-					-- dynamically enable/disable linters based on the context.
 					condition = function(ctx)
 						return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
 					end,
@@ -19,3 +19,26 @@ return {
 		},
 	},
 }
+
+---@param plugin LazyPluginSpec
+local function add_plugin(plugin)
+	table.insert(plugins, plugin)
+end
+
+if fs.exists "mpv" then
+	add_plugin {
+		"folke/lazydev.nvim",
+		optional = true,
+		opts = {
+			library = {
+				{ path = "mpv-types-lua/types", words = { "mp" } },
+			},
+		},
+	}
+
+	add_plugin {
+		"Frestein/mpv-types-lua",
+	}
+end
+
+return plugins

@@ -188,7 +188,7 @@ return {
 		optional = true,
 		opts = {
 			library = {
-				"mini.files",
+				{ path = "mini.fles", words = { "MiniFiles" } },
 			},
 		},
 	},
