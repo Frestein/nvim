@@ -27,18 +27,20 @@ end
 
 if fs.exists "mpv" then
 	add_plugin {
-		"folke/lazydev.nvim",
-		optional = true,
-		opts = {
-			library = {
-				{ path = "mpv-types-lua/types", words = { "mp" } },
-			},
-		},
-	}
-
-	add_plugin {
 		"Frestein/mpv-types-lua",
 	}
+
+	if vim.fn.expand("%:p"):match "mpv" then
+		add_plugin {
+			"folke/lazydev.nvim",
+			optional = true,
+			opts = {
+				library = {
+					{ path = "mpv-types-lua/types", words = { "mp" } },
+				},
+			},
+		}
+	end
 end
 
 return plugins
