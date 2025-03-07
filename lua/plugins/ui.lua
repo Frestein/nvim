@@ -17,8 +17,20 @@ return {
 	},
 
 	{
+		"neovim/nvim-lspconfig",
+		optional = true,
+		---@class PluginLspOpts
+		opts = {
+			---@type vim.diagnostic.Opts
+			diagnostics = {
+				virtual_text = { prefix = "" },
+			},
+		},
+	},
 
+	{
 		"lewis6991/gitsigns.nvim",
+		optional = true,
 		opts = {
 			signs = {
 				add = { text = "┃" },

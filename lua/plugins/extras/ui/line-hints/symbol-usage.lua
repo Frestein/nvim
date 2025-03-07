@@ -41,7 +41,7 @@ end
 return {
 	"Wansmer/symbol-usage.nvim",
 	recommended = true,
-	desc = "Display references, definitions and implementations of document symbols",
+	desc = "Display references, definitions and implementations of document symbols without textDocument/codelens support",
 	event = "LspAttach",
 	opts = {
 		---@type 'above'|'end_of_line'|'textwidth'|'signcolumn' `above` by default
