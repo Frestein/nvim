@@ -35,6 +35,7 @@
     "plugins.extras.editor.treesj",
     "plugins.extras.editor.workspace-diagnostics",
     "plugins.extras.fun.drop",
+    "plugins.extras.fun.dynamic-dashboard",
     "plugins.extras.keys.bufferline.focus-left-or-right",
     "plugins.extras.keys.lazy-extended",
     "plugins.extras.keys.lsp.hover-tab",
