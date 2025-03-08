@@ -12,13 +12,25 @@ local function load_headers()
 	end
 
 	for _, theme in ipairs(themes) do
+		local exclude = {}
+		for _, t in ipairs(M.themes) do
+			if t.theme == theme and t.exclude then
+				for _, ex in ipairs(t.exclude) do
+					exclude[ex] = true
+				end
+			end
+		end
+
 		local theme_files = vim.fn.glob(header_path .. theme .. "/*.txt", true, true)
 		headers[theme] = {}
 
 		for _, file in ipairs(theme_files) do
-			local content = vim.fn.readfile(file)
-			local header_str = table.concat(content, "\n")
-			table.insert(headers[theme], header_str)
+			local filename = vim.fn.fnamemodify(file, ":t:r")
+			if not exclude[filename] then
+				local content = vim.fn.readfile(file)
+				local header_str = table.concat(content, "\n")
+				table.insert(headers[theme], header_str)
+			end
 		end
 	end
 
@@ -76,9 +88,17 @@ function M.get_header()
 end
 
 M.themes = {
+	{ theme = "birthday", month = 2, day = 22 },
+	{ theme = "valentines_day", month = 2, day = 14 },
 	{ theme = "halloween", month = 10, day = 31 },
 	{ theme = "starwars", from = { month = 11, day = 1 }, to = { month = 11, day = 30 } },
 	{ theme = "xmas", from = { month = 12, day = 28 }, to = { month = 1, day = 14 } },
+	{
+		theme = "anime",
+		from = { month = 1, day = 1 },
+		to = { month = 12, day = 31 },
+		exclude = { "1", "2", "3", "4", "5", "7", "8", "9", "10", "12", "17", "yaranaika" }, -- anime
+	},
 }
 
 -- stylua: ignore
