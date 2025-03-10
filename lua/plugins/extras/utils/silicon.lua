@@ -14,7 +14,18 @@ return {
 			return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
 		end,
 		output = function()
-			return "~/Pictures/Screenshots/" .. os.date "C%H.%M.%S-D%m.%d.%Y" .. ".png"
+			local pictures_dir = vim.fn.trim(vim.fn.system "xdg-user-dir PICTURES")
+
+			if pictures_dir == "" or vim.v.shell_error ~= 0 then
+				pictures_dir = os.getenv "HOME" .. "/Pictures"
+			end
+
+			local screenshots_dir = pictures_dir .. "/Screenshots"
+			vim.fn.mkdir(screenshots_dir, "p")
+
+			local filename = os.date "C%H.%M.%S-D%m.%d.%Y" .. ".png"
+
+			return screenshots_dir .. "/" .. filename
 		end,
 	},
 	keys = {
