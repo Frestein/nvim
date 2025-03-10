@@ -14,16 +14,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.o.rtp = lazypath .. "," .. vim.o.rtp
 
-local augroup = vim.api.nvim_create_augroup("LazyUserGroup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "lazy",
+	group = vim.api.nvim_create_augroup("LazyUserGroup", { clear = true }),
 	desc = "Quit lazy with <Esc>",
 	callback = function()
 		vim.keymap.set("n", "<Esc>", function()
 			vim.api.nvim_win_close(0, false)
 		end, { buffer = true, nowait = true })
 	end,
-	group = augroup,
 })
 
 require("lazy").setup {
