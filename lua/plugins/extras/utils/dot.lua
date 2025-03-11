@@ -17,6 +17,7 @@ return {
 				[".*/.*%.hl"] = "hyprlang",
 				[".*/ghostty/config"] = "bash",
 				[".*/kanata/.+"] = "lisp",
+				[".*/newsboat/.+"] = "config",
 				[".*/zathura/themes/.+"] = "zathurarc",
 			},
 		}
