@@ -12,20 +12,18 @@ local plugins = {
 		}
 	end,
 
-	{
-		"mfussenegger/nvim-lint",
-		optional = true,
-		opts = {
-			linters_by_ft = {
-				lua = { "selene" },
-			},
-			---@type table<string, table>
-			linters = {
-				selene = {
-					condition = function(ctx)
-						return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
-					end,
-				},
+	"mfussenegger/nvim-lint",
+	optional = true,
+	opts = {
+		linters_by_ft = {
+			lua = { "selene" },
+		},
+		---@type table<string, table>
+		linters = {
+			selene = {
+				condition = function(ctx)
+					return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1]
+				end,
 			},
 		},
 	},
