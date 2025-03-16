@@ -1,13 +1,7 @@
 return {
 	recommended = function()
 		return LazyVim.extras.wants {
-			ft = "hyprlang",
-			root = {
-				"hyprland.conf",
-				"hypridle.conf",
-				"hyprlock.conf",
-				"hyprpaper.conf",
-			},
+			ft = { "css", "scss", "less" },
 		}
 	end,
 
@@ -17,7 +11,7 @@ return {
 	opts = {
 		---@type lspconfig.options
 		servers = {
-			hyprls = {},
+			cssls = {},
 		},
 	},
 }

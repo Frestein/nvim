@@ -1,4 +1,10 @@
 return {
+	recommended = function()
+		return LazyVim.extras.wants {
+			ft = { "sh", "bash", "dash", "fish", "zsh" },
+		}
+	end,
+
 	{
 		"mfussenegger/nvim-lint",
 		optional = true,

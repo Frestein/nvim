@@ -1,6 +1,17 @@
 local fs = require "utils.fs"
 
 local plugins = {
+	recommended = function()
+		return LazyVim.extras.wants {
+			ft = "lua",
+			root = {
+				".luarc.json",
+				"stylua.toml",
+				"selene.toml",
+			},
+		}
+	end,
+
 	{
 		"mfussenegger/nvim-lint",
 		optional = true,

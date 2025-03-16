@@ -1,4 +1,11 @@
 return {
+	recommended = function()
+		return LazyVim.extras.wants {
+			ft = { "go", "gomod", "gowork", "gotmpl" },
+			root = { "go.work", "go.mod" },
+		}
+	end,
+
 	{
 
 		"ray-x/go.nvim",
@@ -6,6 +13,19 @@ return {
 		config = function(_, opts)
 			require("go").setup(opts)
 		end,
+	},
+
+	{
+
+		"neovim/nvim-lspconfig",
+		optional = true,
+		---@class PluginLspOpts
+		opts = {
+			---@type lspconfig.options
+			servers = {
+				golangci_lint_ls = {},
+			},
+		},
 	},
 
 	{

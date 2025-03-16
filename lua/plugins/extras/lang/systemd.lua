@@ -1,4 +1,10 @@
 return {
+	recommended = function()
+		return LazyVim.extras.wants {
+			ft = "systemd",
+		}
+	end,
+
 	{
 		"neovim/nvim-lspconfig",
 		optional = true,
