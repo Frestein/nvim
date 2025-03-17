@@ -13,10 +13,18 @@ local function load_headers()
 
 	for _, theme in ipairs(themes) do
 		local exclude = {}
+		local include = {}
 		for _, t in ipairs(M.themes) do
-			if t.theme == theme and t.exclude then
-				for _, ex in ipairs(t.exclude) do
-					exclude[ex] = true
+			if t.theme == theme then
+				if t.exclude then
+					for _, ex in ipairs(t.exclude) do
+						exclude[ex] = true
+					end
+				end
+				if t.include then
+					for _, inc in ipairs(t.include) do
+						include[inc] = true
+					end
 				end
 			end
 		end
@@ -26,7 +34,15 @@ local function load_headers()
 
 		for _, file in ipairs(theme_files) do
 			local filename = vim.fn.fnamemodify(file, ":t:r")
-			if not exclude[filename] then
+			local should_include = false
+
+			if next(include) ~= nil then
+				should_include = include[filename]
+			else
+				should_include = not exclude[filename]
+			end
+
+			if should_include then
 				local content = vim.fn.readfile(file)
 				local header_str = table.concat(content, "\n")
 				table.insert(headers[theme], header_str)
@@ -97,25 +113,27 @@ M.themes = {
 		theme = "anime",
 		from = { month = 1, day = 1 },
 		to = { month = 12, day = 31 },
-		exclude = { "1", "2", "3", "4", "5", "7", "8", "9", "10", "12", "17", "yaranaika" }, -- anime
+		-- anime
+		include = { "6", "11", "13", "15", "16" },
+		-- exclude = { "1", "2", "3", "4", "5", "7", "8", "9", "10", "14", "12", "17", "19", "20", "21", "22" },
 	},
 }
 
 -- stylua: ignore
 ---@type snacks.dashboard.Item[]
 M.keys = {
-	{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-	{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+	{ icon = "󰦛 ", key = "s", desc = "Restore", action = ":lua require('persistence').load { last = true }" },
 	{ icon = " ", key = "p", desc = "Projects", action = ":lua Snacks.picker.projects()" },
+	{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+	-- { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
 	{ icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-	{ icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-	{ icon = "󰦛 ", key = "s", desc = "Restore Session", action = ":lua require('persistence').load { last = true }" },
+	{ icon = " ", key = "r", desc = "Recent", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+	{ icon = "󱐁 ", key = "z", desc = "Zoxide", action = ":lua Snacks.picker.zoxide()" },
 	{ icon = " ", key = "S", desc = "Sessions", action = ":lua require('persistence').select()" },
 	{ icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', { cwd = vim.fn.stdpath('config') })" },
-    { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
-	{ icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-	{ icon = "󱐁 ", key = "z", desc = "Zoxide", action = ":lua Snacks.picker.zoxide()" },
 	{ icon = " ", key = "k", desc = "Keymaps", action = ":lua Snacks.dashboard.pick('keymaps')" },
+    { icon = " ", key = "x", desc = "Extras", action = ":LazyExtras" },
+	{ icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
 	{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 }
 
